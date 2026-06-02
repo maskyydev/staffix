@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'presensi_page.dart';
 import 'profile_page.dart';
+import 'crud_karyawan/karyawan_crud_page.dart';
 import '../services/auth_service.dart';
 
 class CustomSidebar extends StatelessWidget {
@@ -233,8 +234,12 @@ class CustomSidebar extends StatelessWidget {
         _drawerTile("Dashboard", Icons.dashboard, Colors.white, () {
           Navigator.pop(context);
         }),
-        _drawerTile(
-            "Data Karyawan & Jabatan", Icons.badge, Colors.white, () {}),
+        _drawerTile("Data Karyawan & Jabatan", Icons.badge, Colors.white, () {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const KaryawanCrudPage()));
+        }),
         _drawerTile(
             "Jadwal Absensi", Icons.calendar_month, Colors.white, () {}),
         _drawerTile(
